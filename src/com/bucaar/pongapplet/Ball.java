@@ -22,7 +22,7 @@ public class Ball{
         x = 680/2-5;
         y = 480/2-5;
         t = 5.495;
-        s = 10;
+        s = 20;
         dx = s * Math.cos(t);
         dy = -s * Math.sin(t);
         d = 10;
@@ -56,19 +56,19 @@ public class Ball{
             }
             
             if(x<-10){
-                a.getP2().addScore();
+                a.p2.addScore();
                 reset(1);
                 dx*=-1;
             }
             if(x>680){
-                a.getP1().addScore();
+                a.p1.addScore();
                 reset(0);
                 dx*=-1;
             }
             
-            if(x<=50+10 && dx<0 && x>=50-10-10 && y+10>=a.getP1().y && y<=a.getP1().y + 100){
+            if(x<=50+10 && dx<0 && x>=50-10-10 && y+10>=a.p1.y && y<=a.p1.y + 100){
                 x+=2*((50+10)-x);
-                double py = y - a.getP1().y;
+                double py = y - a.p1.y;
                 if(dy>0)
                     if(py<-5)
                         t=6.28-t;
@@ -94,9 +94,9 @@ public class Ball{
                 s+=.3;
                 dx*=-1;
             }
-            else if(x+10>=(680-50-10) && dx>0 && x<=680-50-10+10 && y+10>=a.getP2().y&&y<=a.getP2().y+100){
+            else if(x+10>=(680-50-10) && dx>0 && x<=680-50-10+10 && y+10>=a.p2.y&&y<=a.p2.y+100){
                 x+=2*((680-50-10)-(x+10));
-                double py = y - a.getP2().y;
+                double py = y - a.p2.y;
                 if(dy<0)
                     if(dx<-5)
                         t=6.28-t;
@@ -128,7 +128,7 @@ public class Ball{
     public void reset(int i){
         x = 680/2 - 5;
         y = 480/2 - 5;
-        s = 10;
+        s = 20;
         if(i==1){
             t = 5.495;
         }

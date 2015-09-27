@@ -161,19 +161,24 @@ public class Player extends Thread{
             }
         }
         catch(IOException e){
-            
+            log("Could not read line from client..");
         }
         finally{
             try{
                 if(socket!=null){
+                    log("Socket closing...");
                     socket.close();
-                    System.out.println("Socket is closed!");
+                    log("Socket is closed!");
                 }
             }
             catch(IOException e){
-                System.out.println("Socket could not close.");
+                log("Socket could not close.");
             }
             
         }
+    }
+    
+    private void log(String message){
+        System.out.println("PLAYER " + p.id + ": " + message);
     }
 }
