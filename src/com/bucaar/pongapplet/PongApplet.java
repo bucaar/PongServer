@@ -18,10 +18,6 @@ import java.net.ServerSocket;
  * @author Aaron
  */
 public class PongApplet extends Applet implements Runnable{
-<<<<<<< HEAD
-    private boolean running = true;
-=======
->>>>>>> master
     private Graphics graphics;
     private BufferedImage image;
     private int x = 0;
@@ -36,19 +32,11 @@ public class PongApplet extends Applet implements Runnable{
     
     @Override
     public void update(Graphics g){
-<<<<<<< HEAD
-        if(p1.score == 1){
-            p1Win = true;
-            running = false;
-        }
-        else if(p2.score == 1){
-=======
         if(p1.score == scoreToWin){
             p1Win = true;
             running = false;
         }
         else if(p2.score == scoreToWin){
->>>>>>> master
             p2Win = true;
             running = false;
         }
