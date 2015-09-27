@@ -18,7 +18,6 @@ import java.net.ServerSocket;
  * @author Aaron
  */
 public class PongApplet extends Applet implements Runnable{
-
     private boolean running = true;
     private Graphics graphics;
     private BufferedImage image;
@@ -32,17 +31,17 @@ public class PongApplet extends Applet implements Runnable{
     
     @Override
     public void update(Graphics g){
-        if(p1.score == 9){
+        if(p1.score == 1){
             p1Win = true;
+            running = false;
         }
-        else if(p2.score == 9){
+        else if(p2.score == 1){
             p2Win = true;
+            running = false;
         }
-        if(!(p1Win||p2Win)){
-            p1.update();
-            p2.update();
-            ball.update();
-        }
+        p1.update();
+        p2.update();
+        ball.update();
         paint(g);
     }
     
@@ -86,9 +85,9 @@ public class PongApplet extends Applet implements Runnable{
         try{
             server = new ServerSocket(4499);
             Player c1 = new Player(server.accept(), p1, this);
-            System.out.println("Player 0 connected.");
+            log("Player 0 connected.");
             Player c2 = new Player(server.accept(), p2, this);
-            System.out.println("Player 1 connected.");
+            log("Player 1 connected.");
             c1.start();
             c2.start();
             
@@ -98,25 +97,25 @@ public class PongApplet extends Applet implements Runnable{
             }
         }
         catch(IOException e){
-            
+            log("Could not open ServerSocket on port 4499");
         }
         catch(InterruptedException e){
-            
+            log("Main Thread interrupted.");
         }
         finally{
-            try{if(server!=null)server.close();
-                System.out.println("Server closed!");
-            }catch(IOException e){
-                System.out.println("Server could not close.");
+            try{
+                if(server!=null){
+                    server.close();
+                    log("Server closed!");
+                }
+            }
+            catch(IOException e){
+                log("Server could not close.");
             }
         }
     }
     
-    public Paddle getP1(){
-        return p1;
-    }
-    
-    public Paddle getP2(){
-        return p2;
+    private void log(String message){
+        System.out.println("SERVER: " + message);
     }
 }
