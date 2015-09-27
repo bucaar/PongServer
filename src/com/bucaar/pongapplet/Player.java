@@ -39,10 +39,13 @@ public class Player extends Thread{
                 if(input == null || input.equals("")){
                     break;
                 }
+                else if(input.startsWith("DONE")){
+                    out.println(a.running?"NO":"DONE");
+                }
                 else if(input.startsWith("MOVE")){
                     if(input.length()<5){
                         out.println("ERROR");
-                        return;
+                        continue;
                     }
                     input = input.substring(5);
                     if(input.startsWith("up")){
@@ -84,13 +87,13 @@ public class Player extends Thread{
                 else if(input.startsWith("GET")){
                     if(input.length()<4){
                         out.println("ERROR");
-                        return;
+                        continue;
                     }
                     input = input.substring(4);
                     String[] requests = input.split(",");
                     if(requests.length == 0){
                         out.println("ERROR");
-                        return;
+                        continue;
                     }
                     StringBuilder output = new StringBuilder();
                     boolean follows = false;
@@ -153,7 +156,7 @@ public class Player extends Thread{
                         }
                         else{
                             out.println("ERROR");
-                            return;
+                            continue;
                         }
                     }
                     out.println(output.toString());

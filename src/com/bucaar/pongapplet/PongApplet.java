@@ -18,24 +18,25 @@ import java.net.ServerSocket;
  * @author Aaron
  */
 public class PongApplet extends Applet implements Runnable{
-    private boolean running = true;
     private Graphics graphics;
     private BufferedImage image;
     private int x = 0;
     private boolean p1Win = false;
     private boolean p2Win = false;
     
+    protected boolean running = true;
+    protected final int scoreToWin = 1;
     protected Ball ball;
     protected Paddle p1;
     protected Paddle p2;
     
     @Override
     public void update(Graphics g){
-        if(p1.score == 1){
+        if(p1.score == scoreToWin){
             p1Win = true;
             running = false;
         }
-        else if(p2.score == 1){
+        else if(p2.score == scoreToWin){
             p2Win = true;
             running = false;
         }
