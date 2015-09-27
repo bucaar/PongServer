@@ -23,12 +23,13 @@ PongClient Protocol:
                     |                              |    "NO"
                     |                              |    "ERROR"
 
-What's New:
+
 
 What's New:
 
-V1.2    Protocol        *Added "DONE" to display current running state of Server.  If response is "DONE" the client socket should be closed.
-
+V1.2    
+	Protocol        *Added "DONE" to display current running state of Server.  If response is "DONE" the client socket should be closed.
+	
         Ball.java       *Set default ball speed to 20
         
         Player.java     *Fixed "ERROR" responses unexpectedly closing server.
@@ -37,6 +38,7 @@ V1.2    Protocol        *Added "DONE" to display current running state of Server
         PongApplet.java *Added log method to verbox output from the game to command line.
                         *Modified running variable for protocol access
                         
-V1.1	Ball.java	*Split update into intervals based on speed.
+V1.1	
+	Ball.java	*Split update into intervals based on speed.
 			*Fixed passing through paddles when ball is moving exceptionally fast.
 			*Removed unused if statements.
