@@ -1,6 +1,6 @@
 # PongServer
 The Pong Game Engine used for an AI Experiment
-
+ 
 PongClient Protocol:
   		    |   Query			   |    Response			
 --------------------+------------------------------+-----------------------
