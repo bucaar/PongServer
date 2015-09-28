@@ -91,9 +91,9 @@ public class PongApplet extends Applet implements Runnable{
             log("Player 1 connected.");
             c1.start();
             c2.start();
-            
+            server.close();
             while(running){
-                Thread.sleep(1000/30);
+                Thread.sleep(1000/500);
                 repaint();
             }
         }
