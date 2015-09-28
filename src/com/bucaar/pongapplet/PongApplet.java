@@ -93,7 +93,7 @@ public class PongApplet extends Applet implements Runnable{
             c2.start();
             server.close();
             while(running){
-                Thread.sleep(1000/500);
+                Thread.sleep(1000/30);
                 repaint();
             }
         }
